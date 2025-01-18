@@ -1,13 +1,11 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-	"git",
-	"clone",
-	"--filter=blob:none",
-	"--branch=stable",
-	"https://github.com/folke/lazy.nvim.git",
-	lazypath
-  })
+    vim.fn.system({
+        "git", "clone", "--filter=blob:none",
+        "--branch=stable",
+        "https://github.com/folke/lazy.nvim.git",
+        lazypath
+})
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -22,6 +20,19 @@ require("lazy").setup {
 			vim.cmd.colorscheme ("kanagawa-paper")
 		end
 	},
+    {
+        "nvim-neorg/neorg",
+        lazy = false,
+        version = "*",
+        config = function ()
+            require("neorg").setup({
+                load = {
+                    ["core.defaults"] = {},
+                    ["core.concealer"] = {},
+                }
+            })
+        end
+    },
     {
 		'nvim-treesitter/nvim-treesitter',
 
@@ -52,23 +63,6 @@ require("lazy").setup {
             -- dont believe him its not true
 		end
 	},
-
-    -- LSP :(
-    {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "neovim/nvim-lspconfig",
-        },
-
-        config = function()
-            require("mason").setup()
-            require("mason-lspconfig").setup {
-                handlers = require("config.lsp.handlers"),
-            }
-        end
-    },
-
     {
         "nvim-telescope/telescope-ui-select.nvim",
         config = function ()
@@ -84,21 +78,109 @@ require("lazy").setup {
         end
     },
     {
-    'luukvbaal/statuscol.nvim',
-    opts = function()
-      local builtin = require('statuscol.builtin')
-      return {
-        setopt = true,
-        segments = {
-          { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
-          { text = { '%s' }, click = 'v:lua.ScSa' },
-          {
-            text = { builtin.lnumfunc, ' ' },
-            condition = { true, builtin.not_empty },
-            click = 'v:lua.ScLa',
-          },
+        'luukvbaal/statuscol.nvim',
+        opts = function()
+        local builtin = require('statuscol.builtin')
+        return {
+            setopt = true,
+            segments = {
+              { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
+              { text = { '%s' }, click = 'v:lua.ScSa' },
+              {
+                  text = { builtin.lnumfunc, ' ' },
+                  condition = { true, builtin.not_empty },
+                  click = 'v:lua.ScLa',
+              },
+            },
+          }
+        end,
+    },
+    {
+        "windwp/nvim-ts-autotag",
+
+        config = function ()
+            require'nvim-ts-autotag'.setup{
+                opts = {
+                    enable_close = true,
+                    enable_rename = true,
+                    enable_close_on_slash = false
+                },
+            }
+        end,
+    },
+    {
+        "altermo/ultimate-autopair.nvim",
+
+        config = function ()
+             require'ultimate-autopair'.setup{}
+        end
+    },
+
+    {
+        "j-hui/fidget.nvim",
+
+        config = function()
+            require("fidget").setup{}
+        end
+    },
+
+    -- LSP, diagnostics and completion :(
+    {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "neovim/nvim-lspconfig",
         },
-      }
-    end,
-  },
+
+        config = function()
+            require("mason").setup()
+            require("mason-lspconfig").setup {
+                handlers = require("config.lsp.handlers"),
+            }
+
+        end
+    },
+    {
+        "nvimtools/none-ls.nvim",
+        dependencies = {
+            "nvimtools/none-ls-extras.nvim"
+        },
+
+        config = function ()
+            local null_ls = require("null-ls")
+
+            null_ls.setup({
+                sources = {
+                    null_ls.builtins.formatting.stylua,
+                    null_ls.builtins.completion.spell,
+                    -- null_ls.builtins.diagnostics.eslint,
+                    -- null_ls.builtins.formatting.eslint,
+                    -- null_ls.builtins.code_actions.eslint,
+                },
+            })
+        end
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip",
+            "rafamadriz/friendly-snippets",
+            "saadparwaiz1/cmp_luasnip",
+
+            "hrsh7th/cmp-buffer", "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+        },
+
+        config = function ()
+            require("luasnip.loaders.from_vscode").lazy_load()
+            require('cmp').setup(require("config.lsp.cmp"))
+        end
+    },
+    {
+        "folke/trouble.nvim",
+        cmd = "Trouble",
+        lazy = true,
+        keys = require("config.trouble"),
+        config = true
+    },
 }

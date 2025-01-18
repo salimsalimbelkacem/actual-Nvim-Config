@@ -1,4 +1,3 @@
-print("mother and child")
 
 vim.g.mapleader = ' '
 
@@ -33,7 +32,7 @@ vim.o.foldexpr       = "nvim_treesitter#foldexpr()"
 vim.foldlevel        = 99
 
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+-- vim.opt.timeoutlen = 300
 
 vim.opt.cursorline = true
 vim.opt.scrolloff  = 10
@@ -41,5 +40,13 @@ vim.opt.scrolloff  = 10
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
-require("salim.lazy")
+vim.g.netrw_localcopydircmd = 'cp -r'
+vim.g.netrw_liststyle       = 3
+vim.g.netrw_keepdir         = false
+vim.g.netrw_winsize         = 20
+vim.g.netrw_banner          = 0
+vim.g.netrw_bufsettings     = 'noma nomod nu rnu nobl nowrap ro'
+
 require("salim.remaps")
+require("salim.lazy")
+print("welcome")
