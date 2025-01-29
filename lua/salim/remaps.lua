@@ -6,6 +6,8 @@ vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>t', '<cmd>split term://bash<cr><cmd>resize 5<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader><leader>', '<cmd>noh<cr><C-l>', { noremap = true, silent = true })
 
+vim.keymap.set("n", "<C-s>", "<cmd>w<cr>", { noremap = true, silent = true })
+
 vim.keymap.set("i","<A-j>", "<esc><cmd>m .+1<CR>==gi", { noremap = true, silent = true })
 vim.keymap.set("i","<A-k>", "<esc><cmd>m .-2<CR>==gi", { noremap = true, silent = true })
 
@@ -25,9 +27,9 @@ vim.keymap.set("n","<leader>pl", "<cmd>Lazy<CR>",        { noremap = true, silen
 
 vim.keymap.set("n","<leader>e", "<CMD>Lex!<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n","<A-Tab>", "<CMD>tabnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n","<A-w>", "<CMD>tabclose<CR>", { noremap = true, silent = true })
-vim.keymap.set("n","<A-t>", "<CMD>tabnew<CR>", { noremap = true, silent = true })
+vim.keymap.set("n","<M-Tab>", "<CMD>tabnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n","<M-w>", "<CMD>tabclose<CR>", { noremap = true, silent = true })
+vim.keymap.set("n","<M-t>", "<CMD>tabnew<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n","<A-p>", '"0p', { noremap = true, silent = true })
 
