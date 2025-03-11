@@ -16,10 +16,32 @@ require("lazy").setup {
 		'sho-87/kanagawa-paper.nvim',
 
 		config = function ()
-			require('kanagawa-paper').setup { dimInactive = false, }
+			require('kanagawa-paper').setup { dimInactive = false, transparent = true }
 			vim.cmd.colorscheme ("kanagawa-paper")
 		end
 	},
+    {
+        "yorik1984/newpaper.nvim",
+        priority = 1000,
+        config = function ()
+            require("newpaper").setup{
+                style="dark",
+            }
+        end
+    },
+    {
+        'maxmx03/solarized.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            transparent = {
+                enabled = false,
+            }
+        },
+        config = function(_, opts)
+            require('solarized').setup(opts)
+        end,
+    },
     {
         "nvim-neorg/neorg",
         lazy = false,
@@ -152,7 +174,6 @@ require("lazy").setup {
             null_ls.setup({
                 sources = {
                     null_ls.builtins.formatting.stylua,
-                    null_ls.builtins.completion.spell,
                     -- null_ls.builtins.diagnostics.eslint,
                     -- null_ls.builtins.formatting.eslint,
                     -- null_ls.builtins.code_actions.eslint,

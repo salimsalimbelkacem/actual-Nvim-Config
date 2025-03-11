@@ -1,14 +1,11 @@
 return {
     function(server_name)
-        require("lspconfig")[server_name].setup {
-            capabilities = capabilities
-        }
+        require("lspconfig")[server_name].setup { }
     end,
 
     ["lua_ls"] = function()
         local lspconfig = require("lspconfig")
         lspconfig.lua_ls.setup {
-            capabilities = capabilities,
             settings = {
                 Lua = {
     runtime = { version = "Lua 5.1" },
@@ -21,7 +18,6 @@ return {
     end,
     ["clangd"] = function()
         require("lspconfig").clangd.setup({
-            capabilities = capabilities,
             cmd = {"clangd"}
         })
     end,

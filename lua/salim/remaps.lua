@@ -33,6 +33,11 @@ vim.keymap.set("n","<M-t>", "<CMD>tabnew<CR>", { noremap = true, silent = true }
 
 vim.keymap.set("n","<A-p>", '"0p', { noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>cm", "<CMD>!make<CR>", {})
+vim.keymap.set("n", "<leader>cc", ":!make ", {})
+
+vim.keymap.set("n", "q:", "<Nop>", {})
+
 vim.keymap.set('n', '<leader>gl', require("salim.lazyGit").Floating_lazygit, { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("FileType", require("salim.netrwMaps") )
