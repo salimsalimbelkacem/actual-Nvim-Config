@@ -27,7 +27,7 @@ return {
             filetypes = { "python" },
             settings = {
                 python = {
-                    pythonfile = "/home/salim/.venv/bin/python",
+                    pythonfile = "/home/salim/.venv/bin/python3",
                     analysis = {
                         extraPaths = { "/home/salim/.venv/lib/python3.12/site-packages" }
                     }

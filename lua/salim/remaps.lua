@@ -3,7 +3,7 @@ vim.keymap.set("v","q", "<esc>", { noremap = true, silent = true })
 vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
 vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<leader>t', '<cmd>split term://bash<cr><cmd>resize 5<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>t', '<cmd>vs term://bash<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader><leader>', '<cmd>noh<cr><C-l>', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-s>", "<cmd>w<cr>", { noremap = true, silent = true })
