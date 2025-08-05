@@ -42,24 +42,27 @@ require("lazy").setup {
             require('solarized').setup(opts)
         end,
     },
-    {
-        "nvim-neorg/neorg",
-        lazy = false,
-        version = "*",
-        config = function ()
-            require("neorg").setup({
-                load = {
-                    ["core.defaults"] = {},
-                    ["core.concealer"] = {},
-                }
-            })
-        end
-    },
+	-- {
+	-- 	"nvim-neo-tree/neo-tree.nvim",
+	-- 	branch = "v3.x",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		{"3rd/image.nvim", opts = {}},
+	-- 	},
+	-- 	lazy = false,
+	-- 	---@module "neo-tree"
+	-- 	---@type neotree.Config?
+	-- 	config =  function ()
+	-- 		require'neo-tree'.setup( require'config.neotree' )
+	-- 	end,
+	-- },
     {
 		'nvim-treesitter/nvim-treesitter',
 
 		config = function ()
-			require'nvim-treesitter.configs'.setup ( require("config.treesitter") )
+			require'nvim-treesitter.configs'.setup( require'config.treesitter' )
 		end
     },
     {
@@ -162,25 +165,25 @@ require("lazy").setup {
 
         end
     },
-    {
-        "nvimtools/none-ls.nvim",
-        dependencies = {
-            "nvimtools/none-ls-extras.nvim"
-        },
-
-        config = function ()
-            local null_ls = require("null-ls")
-
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.stylua,
-                    -- null_ls.builtins.diagnostics.eslint,
-                    -- null_ls.builtins.formatting.eslint,
-                    -- null_ls.builtins.code_actions.eslint,
-                },
-            })
-        end
-    },
+    -- {
+    --     "nvimtools/none-ls.nvim",
+    --     dependencies = {
+    --         "nvimtools/none-ls-extras.nvim"
+    --     },
+    --
+    --     config = function ()
+    --         local null_ls = require("null-ls")
+    --
+    --         null_ls.setup({
+    --             sources = {
+    --                 null_ls.builtins.formatting.stylua,
+    --                 -- null_ls.builtins.diagnostics.eslint,
+    --                 -- null_ls.builtins.formatting.eslint,
+    --                 -- null_ls.builtins.code_actions.eslint,
+    --             },
+    --         })
+    --     end
+    -- },
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
