@@ -3,6 +3,9 @@ vim.keymap.set("v","q", "<esc>", { noremap = true, silent = true })
 vim.keymap.set("n","<leader>e", "<CMD>Lex!<CR>", { noremap = true, silent = true })
 -- vim.keymap.set("n","<leader>o", "<CMD>Neotree focus<CR>", { noremap = true, silent = true })
 
+vim.keymap.set("n","<C-s>", "<CMD>w<CR>", { noremap = true, silent = true })
+vim.keymap.set("i","<C-s>", "<CMD>w<CR>", { noremap = true, silent = true })
+
 vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
 vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 
@@ -27,7 +30,8 @@ vim.keymap.set("n","<leader>ps", "<cmd>Lazy sync<CR>",   { noremap = true, silen
 vim.keymap.set("n","<leader>pl", "<cmd>Lazy<CR>",        { noremap = true, silent = true })
 
 
-vim.keymap.set("n","<M-Tab>", "<CMD>tabnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n","<M-]>", "<CMD>tabnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n","<M-[>", "<CMD>tabprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n","<M-w>", "<CMD>tabclose<CR>", { noremap = true, silent = true })
 vim.keymap.set("n","<M-t>", "<CMD>tabnew<CR>", { noremap = true, silent = true })
 
