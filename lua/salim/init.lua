@@ -10,12 +10,11 @@ vim.o.nu  = true
 vim.o.rnu = true
 
 vim.o.undofile = true
-vim.o.undodir  = "/home/salim/.vim/vimundo"
+vim.o.undodir  = "/home/salim_belkacem/.vim/vimundo"
 
-vim.o.expandtab   = false
-vim.o.softtabstop = 8
-vim.o.shiftwidth  = 8
+vim.o.expandtab = false
 vim.o.tabstop	= 8
+vim.o.shiftwidth= 0
 
 vim.o.swapfile = false
 vim.o.backup   = false
@@ -29,12 +28,14 @@ vim.o.foldexpr	 = "nvim_treesitter#foldexpr()"
 vim.foldlevel	 = 99
 
 vim.opt.updatetime = 250
--- vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 300
 
 vim.opt.cursorline = true
 vim.opt.scrolloff  = 10
 
-vim.opt.splitright = true
+vim.opt.colorcolumn = "80"
+
+-- vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.g.netrw_localcopydircmd = 'cp -r'
