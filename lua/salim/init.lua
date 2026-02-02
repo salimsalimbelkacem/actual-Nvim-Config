@@ -33,7 +33,7 @@ vim.opt.timeoutlen = 300
 vim.opt.cursorline = true
 vim.opt.scrolloff  = 10
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 
 -- vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -41,9 +41,10 @@ vim.opt.splitbelow = true
 vim.g.netrw_localcopydircmd = 'cp -r'
 vim.g.netrw_liststyle   = 3
 vim.g.netrw_keepdir	= false
-vim.g.netrw_winsize	= 20
+vim.g.netrw_winsize	= 13
 vim.g.netrw_banner	= 0
 vim.g.netrw_bufsettings	= 'noma nomod nu rnu nobl nowrap ro'
+vim.g.netrw_keepdir = 1
 
 vim.cmd([[
 	autocmd FileType yuck setlocal commentstring=;%s
@@ -51,6 +52,10 @@ vim.cmd([[
 	autocmd FileType html setlocal softtabstop=2
 	autocmd FileType html setlocal shiftwidth=2
 	autocmd FileType html setlocal tabstop=2
+
+	autocmd FileType lua setlocal softtabstop=2
+	autocmd FileType lua setlocal shiftwidth=2
+	autocmd FileType lua setlocal tabstop=2
 
 	autocmd FileType javascriptreact setlocal softtabstop=2
 	autocmd FileType javascriptreact setlocal shiftwidth=2

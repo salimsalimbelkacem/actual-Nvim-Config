@@ -40,8 +40,8 @@ vim.keymap.set("n","<M-h>", "<C-w>5<", { noremap = true, silent = true })
 
 vim.keymap.set("n","<A-p>", '"0p', { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>cm", "<CMD>!make<CR>", {})
-vim.keymap.set("n", "<leader>cc", ":!make ", {})
+vim.keymap.set("n", "<leader>cc", "<CMD>make<CR>", {})
+vim.keymap.set("n", "<leader>cm", ":make ", {})
 
 vim.keymap.set("n", "q:", "<Nop>", {})
 
