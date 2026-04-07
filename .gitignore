@@ -2,3 +2,4 @@ snippets/
 syntax/
 snippets.lua
 gzdoom.lua
+/lazy-lock.json

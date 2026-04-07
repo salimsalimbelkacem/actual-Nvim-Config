@@ -1,6 +1,6 @@
 vim.keymap.set("v","q", "<esc>", { noremap = true, silent = true })
 
-vim.keymap.set("n","<leader>e", "<CMD>Lex!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n","<leader>e", "<CMD>Ex<CR>", { noremap = true, silent = true })
 -- vim.keymap.set("n","<leader>o", "<CMD>Neotree focus<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n","<C-s>", "<CMD>w<CR>", { noremap = true, silent = true })
@@ -11,6 +11,8 @@ vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>t', '<cmd>vs term://fish<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader><leader>', '<cmd>noh<cr><C-l>', { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { noremap = true, silent = true })
 
 vim.keymap.set("i","<A-j>", "<esc><cmd>m .+1<CR>==gi", { noremap = true, silent = true })
 vim.keymap.set("i","<A-k>", "<esc><cmd>m .-2<CR>==gi", { noremap = true, silent = true })
@@ -29,21 +31,16 @@ vim.keymap.set("n","<leader>pc", "<cmd>Lazy check<CR>",  { noremap = true, silen
 vim.keymap.set("n","<leader>ps", "<cmd>Lazy sync<CR>",   { noremap = true, silent = true })
 vim.keymap.set("n","<leader>pl", "<cmd>Lazy<CR>",        { noremap = true, silent = true })
 
-
+vim.keymap.set("n","<M-t>", "<CMD>tabnew<CR>", { noremap = true, silent = true })
 vim.keymap.set("n","<M-]>", "<CMD>tabnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n","<M-[>", "<CMD>tabprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n","<M-w>", "<CMD>tabclose<CR>", { noremap = true, silent = true })
-vim.keymap.set("n","<M-t>", "<CMD>tabnew<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n","<M-l>", "<C-w>5>", { noremap = true, silent = true })
 vim.keymap.set("n","<M-h>", "<C-w>5<", { noremap = true, silent = true })
 
-vim.keymap.set("n","<A-p>", '"0p', { noremap = true, silent = true })
-
 vim.keymap.set("n", "<leader>cc", "<CMD>make<CR>", {})
 vim.keymap.set("n", "<leader>cm", ":make ", {})
-
-vim.keymap.set("n", "q:", "<Nop>", {})
 
 vim.keymap.set('n', '<leader>gl', require("salim.lazyGit").Floating_lazygit, { noremap = true, silent = true })
 
