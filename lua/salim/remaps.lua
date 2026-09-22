@@ -1,18 +1,10 @@
 vim.keymap.set("v","q", "<esc>", { noremap = true, silent = true })
 
-vim.keymap.set("n","<leader>e", "<CMD>Ex<CR>", { noremap = true, silent = true })
--- vim.keymap.set("n","<leader>o", "<CMD>Neotree focus<CR>", { noremap = true, silent = true })
-
 vim.keymap.set("n","<C-s>", "<CMD>w<CR>", { noremap = true, silent = true })
 vim.keymap.set("i","<C-s>", "<CMD>w<CR>", { noremap = true, silent = true })
-
-vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
-vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
-
-vim.keymap.set('n', '<leader>t', '<cmd>vs term://fish<cr>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader><leader>', '<cmd>noh<cr><C-l>', { noremap = true, silent = true })
-
 vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { noremap = true, silent = true })
+
+-- EDITING
 
 vim.keymap.set("i","<A-j>", "<esc><cmd>m .+1<CR>==gi", { noremap = true, silent = true })
 vim.keymap.set("i","<A-k>", "<esc><cmd>m .-2<CR>==gi", { noremap = true, silent = true })
@@ -23,13 +15,10 @@ vim.keymap.set("v","<A-k>", "<cmd>m '<-2<CR>gv==gv", { noremap = true, silent = 
 vim.keymap.set("n","<A-j>", "<cmd>m .+1<CR>", { noremap = true, silent = true })
 vim.keymap.set("n","<A-k>", "<cmd>m .-2<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n","<leader>li", "<cmd>LspInfo<CR>", { noremap = true, silent = true })
-vim.keymap.set("n","<leader>lm", "<cmd>Mason<CR>",   { noremap = true, silent = true })
+-- NAVIGATION
 
-vim.keymap.set("n","<leader>pu", "<cmd>Lazy update<CR>", { noremap = true, silent = true })
-vim.keymap.set("n","<leader>pc", "<cmd>Lazy check<CR>",  { noremap = true, silent = true })
-vim.keymap.set("n","<leader>ps", "<cmd>Lazy sync<CR>",   { noremap = true, silent = true })
-vim.keymap.set("n","<leader>pl", "<cmd>Lazy<CR>",        { noremap = true, silent = true })
+vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
+vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
 
 vim.keymap.set("n","<M-t>", "<CMD>tabnew<CR>", { noremap = true, silent = true })
 vim.keymap.set("n","<M-]>", "<CMD>tabnext<CR>", { noremap = true, silent = true })
@@ -39,12 +28,16 @@ vim.keymap.set("n","<M-w>", "<CMD>tabclose<CR>", { noremap = true, silent = true
 vim.keymap.set("n","<M-l>", "<C-w>5>", { noremap = true, silent = true })
 vim.keymap.set("n","<M-h>", "<C-w>5<", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>cc", "<CMD>make<CR>", {})
-vim.keymap.set("n", "<leader>cm", ":make ", {})
+vim.keymap.set('n', '<leader><leader>', '<cmd>noh<cr><C-l>', { noremap = true, silent = true })
 
+-- SPAWN
+
+vim.keymap.set("n","<leader>m", "<cmd>Mason<CR>",   { noremap = true, silent = true })
+vim.keymap.set("n","<leader>e", "<CMD>Ex<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>t', '<cmd>vs term://fish<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>xx', "<CMD>Trouble diagnostics<CR>", { noremap = true, silent = true })
-
 vim.keymap.set('n', '<leader>gl', require("salim.lazyGit").Floating_lazygit, { noremap = true, silent = true })
+vim.keymap.set("n","<leader>pu", function () vim.pack.update() end , { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "netrw",
