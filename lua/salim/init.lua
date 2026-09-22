@@ -10,16 +10,12 @@ vim.o.nu  = true
 vim.o.rnu = true
 
 vim.o.undofile = true
-vim.o.undodir  = "/home/salim/.vim/vimundo"
+vim.o.undodir  = os.getenv("HOME") .. "/.vim/vimundo"
 
 vim.o.expandtab = true
 vim.o.softtabstop= 4
 vim.o.shiftwidth= 4
 vim.o.tabstop	= 4
-
-vim.cmd(
-    [[ autocmd FileType html, lua, javascript, javascriptreact setlocal softtabstop=2 shiftwidth=2 tabstop=2 ]]
-)							
 
 vim.opt.iskeyword = vim.opt.iskeyword - "_"
 
@@ -37,7 +33,8 @@ vim.o.foldlevelstart = 99
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.scrolloff  = 10
 
 vim.opt.colorcolumn = "100"
@@ -47,18 +44,21 @@ vim.opt.splitbelow = true
 
 vim.g.netrw_localcopydircmd = 'cp -r'
 vim.g.netrw_keepdir	= false
-vim.g.netrw_winsize	= 13
+-- vim.g.netrw_winsize	= 13
 vim.g.netrw_banner	= 0
-vim.g.netrw_bufsettings	= 'noma nomod nu rnu nobl nowrap ro'
+vim.g.netrw_bufsettings	= 'noma nomod nu rnu nobl ro'
 vim.g.netrw_keepdir = 1
 
 vim.api.nvim_create_autocmd('TextYankPost', { callback = function() vim.hl.on_yank() end, })
 
+vim.cmd(
+    [[ autocmd FileType html,lua,javascript,javascriptreact setlocal softtabstop=2 shiftwidth=2 tabstop=2 ]]
+)
 vim.cmd([[
 autocmd FileType yuck setlocal commentstring=;%s
-]])							
+]])
 
 require("salim.remaps")
-require("salim.lazy")
+require("salim.lspconfig")
 
 print("welcome")

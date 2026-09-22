@@ -42,6 +42,16 @@ vim.keymap.set("n","<M-h>", "<C-w>5<", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>cc", "<CMD>make<CR>", {})
 vim.keymap.set("n", "<leader>cm", ":make ", {})
 
+vim.keymap.set('n', '<leader>xx', "<CMD>Trouble diagnostics<CR>", { noremap = true, silent = true })
+
 vim.keymap.set('n', '<leader>gl', require("salim.lazyGit").Floating_lazygit, { noremap = true, silent = true })
 
-vim.api.nvim_create_autocmd("FileType", require("salim.netrwMaps") )
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "netrw",
+    callback = function()
+        vim.api.nvim_buf_set_keymap(0, 'n', 'l', '<CR>', { noremap = false, silent = true })
+        vim.api.nvim_buf_set_keymap(0, 'n', 'q', '<C-6>', { noremap = false, silent = true })
+        vim.api.nvim_buf_set_keymap(0, 'n', '<leader>e', '<C-6>', { noremap = false, silent = true })
+        -- vim.api.nvim_buf_set_keymap(0, 'n', 'h', '-', { noremap = false, silent = true })
+    end
+} )

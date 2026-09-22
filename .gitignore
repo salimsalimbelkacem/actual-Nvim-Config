@@ -3,3 +3,4 @@ syntax/
 snippets.lua
 gzdoom.lua
 /lazy-lock.json
+/nvim-pack-lock.json
