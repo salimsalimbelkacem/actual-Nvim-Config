@@ -11,3 +11,8 @@ require("telescope").setup({
 })
 require("telescope").load_extension("ui-select")
 
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { noremap = true, silent = true })
+vim.keymap.set("n","<leader>ff",  builtin.find_files, { noremap = true, silent = true })
+vim.keymap.set("n","<leader>fb",  builtin.buffers, { noremap = true, silent = true })
+vim.keymap.set("n","<leader>fg",  builtin.live_grep, { noremap = true, silent = true })

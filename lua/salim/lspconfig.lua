@@ -17,10 +17,17 @@ vim.lsp.config['lua_ls'] = {
   },
 }
 
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
-})
+vim.lsp.config['kotlin_lsp'] = {
+  cmd = { 'intellij-server', '--stdio' },
+  filetypes = { 'kotlin' },
+  root_markers = {
+    { 'settings.gradle.kts', 'settings.gradle', 'build.gradle.kts', 'build.gradle' },
+    '.git',
+  },
+  cmd_env = {
+    ANDROID_HOME = '/home/salim/Android/Sdk',
+    JAVA_HOME = '/usr/lib/jvm/java-26-openjdk',
+  },
+}
+
+vim.lsp.enable('kotlin_lsp')

@@ -31,7 +31,7 @@ vim.foldlevel	 = 99
 vim.o.foldlevelstart = 99
 
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+-- vim.opt.timeoutlen = 300
 
 -- vim.opt.cursorline = true
 vim.opt.cursorline = false
@@ -57,6 +57,14 @@ vim.cmd(
 vim.cmd([[
 autocmd FileType yuck setlocal commentstring=;%s
 ]])
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
 
 require("salim.remaps")
 require("salim.lspconfig")

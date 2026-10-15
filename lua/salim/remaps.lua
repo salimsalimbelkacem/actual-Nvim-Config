@@ -35,9 +35,8 @@ vim.keymap.set('n', '<leader><leader>', '<cmd>noh<cr><C-l>', { noremap = true, s
 vim.keymap.set("n","<leader>m", "<cmd>Mason<CR>",   { noremap = true, silent = true })
 vim.keymap.set("n","<leader>e", "<CMD>Ex<CR>", { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>t', '<cmd>vs term://fish<cr>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>xx', "<CMD>Trouble diagnostics<CR>", { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>gl', require("salim.lazyGit").Floating_lazygit, { noremap = true, silent = true })
-vim.keymap.set("n","<leader>pu", function () vim.pack.update() end , { noremap = true, silent = true })
+vim.keymap.set("n","<leader>pu", vim.pack.update, { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "netrw",
